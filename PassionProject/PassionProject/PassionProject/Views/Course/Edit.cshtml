@@ -1,0 +1,41 @@
+﻿@model PassionProject.Models.ViewModel.UpdateCourse
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Student</h2>
+<form action="/Course/Update/@Model.SelectedCourse.CourseId" method="POST">
+    <div>
+        <label>Name:</label>
+        <label>@Model.SelectedCourse.CourseId</label>
+    </div>
+    <div>
+        <label>Level</label>
+        <input type="text" name="Level" value="@Model.SelectedCourse.Level"/>
+    </div>
+    <div>
+        <label>Hours</label>
+        <input type="text" name="Hours"  value="@Model.SelectedCourse.Hours" />
+    </div>
+    <div>
+        <label>Price:</label>
+        <input type="text" name="Price"  value="@Model.SelectedCourse.Price"/>
+    </div>
+    <div>
+        <label>Day:</label>
+        <input type="text" name="Day" value="@Model.SelectedCourse.Day" />
+    </div>
+    <div>
+        <label>Time:</label>
+        <input type="text" name="Time"  value="@Model.SelectedCourse.Time"/>
+    </div>
+    <div>
+        <label>Description:</label>
+        <input type="text" name="Description"  value="@Model.SelectedCourse.Description"/>
+    </div>
+    <div>
+        <input type="submit" value="Add Course" />
+    </div>
+</form>
+

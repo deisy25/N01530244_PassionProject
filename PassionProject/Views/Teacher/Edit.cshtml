@@ -1,0 +1,33 @@
+﻿@model PassionProject.Models.ViewModel.UpdateTeacher
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Update Teacher</h2>
+<form action="/Teacher/Update/@Model.SelectedTeacher.TeacherID" method="POST">
+    <div>
+        <label>StudentID:</label>
+        <label>@Model.SelectedTeacher.TeacherID</label>
+    </div>
+    <div>
+        <label>Name:</label>
+        <input type="text" name="TeacherName" value="@Model.SelectedTeacher.TeacherName" /> 
+    </div>
+    <div>
+        <label>Date of Birth:</label>
+        <input type="text" name="DateOfBirth" value="@Model.SelectedTeacher.DateOfBirth.ToString("yyyy-MM-dd")" />
+    </div>
+    <div>
+        <label>Address:</label>
+        <input type="text" name="Address" value="@Model.SelectedTeacher.Address" />
+    </div>
+    <div>
+        <label>PostalCode:</label>
+        <input type="text" name="PostalCode" value="@Model.SelectedTeacher.PostalCode" />
+    </div>
+    <div>
+        <input type="submit" value="Update Teacher" />
+    </div>
+</form>
+

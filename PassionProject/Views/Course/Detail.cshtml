@@ -1,0 +1,46 @@
+﻿@model PassionProject.Models.ViewModel.DetailCourse
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<a href="/Course/List">Go back to list</a>
+<br />
+
+<a href="/Course/Edit/@Model.SelectedCourse.CourseId">Update</a>
+<br />
+<a style="color:#ab2020;" href="/Student/DeleteConfirm/@Model.SelectedCourse.CourseId">Delete</a>
+<h3>@Model.SelectedCourse.CourseName</h3>
+<p>
+    Taught by:
+    @foreach (var Teacher in Model.TeacherTaught)
+    {
+        <a href="/Teacher/Detail/@Teacher.TeacherID">@Teacher.TeacherName</a>
+        <br />
+    }
+</p>
+<p>Course Level: @Model.SelectedCourse.Level</p>
+<p>Course Hours: @Model.SelectedCourse.Hours</p>
+<p>Price: @Model.SelectedCourse.Price</p>
+<p>Day: @Model.SelectedCourse.Day</p>
+<p>Time: @Model.SelectedCourse.Time</p>
+<p>Description: @Model.SelectedCourse.Description</p>
+
+<h3>List Students:</h3>
+@foreach (var student in Model.StudentTaken)
+{
+    <a href="/Student/Detail/@student.StudentID">@student.StudentName</a> <a style="color:#ab2020;" href="/Course/Remove/@Model.SelectedCourse.CourseId?StudentID=@student.StudentID">[x]</a>
+    <br />
+}
+
+<h3>Adding New Students to Course</h3>
+<form method="POST" action="/Course/Associate/@Model.SelectedCourse.CourseId">
+    <select name="StudentID">
+       @foreach(var student in Model.AvailableStudent)
+        {
+            <option value="@student.StudentID">@student.StudentName</option>
+        }
+    </select>
+    <input type="submit" value="Add Student to Courses" />
+</form>
+

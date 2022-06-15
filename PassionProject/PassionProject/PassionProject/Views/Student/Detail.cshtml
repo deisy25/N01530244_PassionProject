@@ -1,0 +1,24 @@
+﻿@model PassionProject.Models.ViewModel.DetailStudent
+
+@{
+    ViewBag.Title = "Detail";
+}
+
+<a href="/Student/List">Go back to list</a>
+<br />
+
+<a href="/Student/Edit/@Model.SelectedStudent.StudentID">Update</a>
+<br />
+<a style="color:#ab2020;" href="/Student/DeleteConfirm/@Model.SelectedStudent.StudentID">Delete</a>
+<h3>@Model.SelectedStudent.StudentName</h3>
+<p>Date Of Birth: @Model.SelectedStudent.DateOfBirth.ToString("yyyy-MM-dd")</p>
+<p>Address: @Model.SelectedStudent.Address </p>
+<p>Postal Code: @Model.SelectedStudent.PostalCode </p>
+
+<h3>Course Taken:</h3>
+@foreach (var course in Model.CoursesTaken)
+{
+    <a href="/Course/Detail/@course.CourseId">@course.CourseName</a>
+    <br />
+}
+
